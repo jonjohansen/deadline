@@ -1,0 +1,21 @@
+@import '~nord/src/sass/nord.scss';
+
+.container {
+  margin-top: 20vmin;
+  height: 40vmin;
+  text-align: center;
+  pointer-events: none;
+  padding: 2vmax;
+
+  .wrap {
+    // A little faded background behind numbers
+    border-radius: 3em;
+    background-color: rgba($nord0, 0.7);
+    box-shadow: 0 0em 6em 6em rgba($nord0, 0.5);
+  }
+
+  .header {
+    color: $nord8;
+    font-size: 5vmax;
+  }
+}
