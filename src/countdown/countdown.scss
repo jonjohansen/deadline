@@ -1,45 +1,45 @@
-@import '~nord/src/sass/nord.scss';
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+@import "~nord/src/sass/nord.scss";
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
 
 .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .item {
+    .number {
+      font-family: "Roboto Mono", monospace;
+      color: $nord10; // Number color
+      font-size: 1.5em;
+      line-height: 0.8em;
+    }
+
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 1em;
+    position: relative;
 
-    .item {
-        .number {
-            font-family: 'Roboto Mono', monospace;
-            color: $nord10; // Number color 
-            font-size: 1.5em;
-            line-height: 0.8em;
-        }
+    .countdown-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        margin: 1em;
-        position: relative;
-
-        .countdown-svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            // Circle
-            path {
-                stroke: $nord8
-            }
-        }
-
-        span {
-            // Text
-            padding-top: 0.4em;
-            color: $nord10;
-            font-size: 0.875em;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
+      // Circle
+      path {
+        stroke: $nord8;
+      }
     }
+
+    span {
+      // Text
+      padding-top: 0.4em;
+      color: $nord10;
+      font-size: 0.875em;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  }
 }

@@ -1,11 +1,16 @@
-@import '~nord/src/sass/nord.scss';
-@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import "~nord/src/sass/nord.scss";
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+
+html {
+  height: 100vh;
+}
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   color: $nord5;
   background-color: $nord0;
   margin: 0;
   background-color: #2e3440;
   background-image: url("/topography.svg");
+  height: 100vh;
 }
