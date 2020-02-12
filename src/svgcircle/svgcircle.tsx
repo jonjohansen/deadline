@@ -10,17 +10,15 @@ export const SVGCircle: React.SFC<SvgProps> = props => {
     width: props.size * 2 + "px",
     height: props.size * 2 + "px"
   };
+
   const margin = props.size - props.size / 25;
-  const svgStyle = {
-    width: props.size * 2 + "px",
-    height: props.size * 2 + "px"
-  };
+
   return (
     <svg className="countdown-svg" style={sizeStyle}>
       <path
         fill="none"
         stroke="#333"
-        stroke-width="4"
+        strokeWidth="4"
         d={describeArc(props.size, props.size, margin, 0, props.radius)}
       />
     </svg>
