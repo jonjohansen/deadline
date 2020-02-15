@@ -3,20 +3,12 @@ import { SVGCircle, mapNumber } from "../svgcircle/svgcircle";
 import moment from "moment";
 import "./countdown.scss";
 
-type ClockState = {
-  months: number;
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-};
-
 export const Clock: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState<moment.MomentObjectOutput>();
 
   useEffect(() => {
     const tick = setInterval(() => {
-      const end = moment([2020, 4, 31]);
+      const end = moment([2020, 5, 1, 23, 59, 59]); // Jun 1st 23:59:59
       const timeleft = moment(end.diff(moment(Date.now()))).toObject();
       setTimeLeft(timeleft);
     }, 1000);
@@ -28,8 +20,9 @@ export const Clock: React.FC = () => {
 
   const { size, fontSize } = useMemo(() => {
     return {
-      size: window.innerWidth * 0.07,
-      fontSize: window.innerWidth > 1920 ? "2em" : "1.6em"
+      size: window.innerWidth > 1080 ? window.innerWidth * 0.07 : 100,
+      fontSize:
+        window.innerWidth > 1080 ? window.innerWidth * 0.1 + "%" : "1.6em"
     };
   }, []);
 
