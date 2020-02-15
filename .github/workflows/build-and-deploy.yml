@@ -28,7 +28,7 @@ jobs:
         uses: garygrossgarten/github-action-scp@release
         with:
           local: build
-          remote: ~/web/deadline
+          remote: web/deadline
           username: ${{ secrets.username }}
           host: ${{ secrets.host }}
           privateKey: ${{ secrets.private_key }}
