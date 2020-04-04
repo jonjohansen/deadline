@@ -9,16 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: yarn install
+        uses: borales/actions-yarn@v2.0.0
         with:
-          node-version: "12.x"
-      - name: Npm install
-        run: npm install
+          cmd: install
       - name: Build
-        run: npm run-script build
-        env:
-          CI: true
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: build
       - name: Deploy
         uses: garygrossgarten/github-action-scp@release
         with:
