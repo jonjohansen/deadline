@@ -1,7 +1,7 @@
 # ⏰ Deadline
 
+[![start with why](https://img.shields.io/badge/Live-demo-brightgreen.svg?style=flat)](https://deadline.jonjohansen.no)
 ![Build and deploy](https://github.com/jonjohansen/deadline/workflows/Build%20and%20deploy/badge.svg)
-[Demo](https://deadline.jonjohansen.no)
 
 </hr>
 
