@@ -19,7 +19,7 @@ export const SVGCircle: React.SFC<SvgProps> = props => {
         fill="none"
         stroke="#333"
         strokeWidth="4"
-        d={describeArc(props.size, props.size, margin, 0, props.radius)}
+        d={describeArc(props.size, props.size, margin, props.radius, 360)}
       />
     </svg>
   );
