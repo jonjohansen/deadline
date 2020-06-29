@@ -8,7 +8,7 @@ export const Clock: React.FC = () => {
 
   useEffect(() => {
     const tick = setInterval(() => {
-      const end = moment([2020, 5, 29, 23, 0, 0]); // Jun 30th 23:59:59
+      const end = moment([2020, 5, 30, 23, 0, 0]); // Jun 30th 23:59:59
       const timeleft = moment(end.diff(moment(Date.now()))).toObject();
       setTimeLeft(timeleft);
     }, 1000);
