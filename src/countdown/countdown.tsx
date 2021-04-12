@@ -3,6 +3,9 @@ import { SVGCircle, mapNumber } from "../svgcircle/svgcircle";
 import moment from "moment";
 import "./countdown.scss";
 
+const plurifyString = (toPlurify: string, value: number): string =>
+  value === 1 ? toPlurify : toPlurify + "s";
+
 export const Clock: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState<moment.MomentObjectOutput>();
 
@@ -22,7 +25,7 @@ export const Clock: React.FC = () => {
     return {
       size: window.innerWidth > 1080 ? window.innerWidth * 0.07 : 100,
       fontSize:
-        window.innerWidth > 1080 ? window.innerWidth * 0.1 + "%" : "1.6em"
+        window.innerWidth > 1080 ? window.innerWidth * 0.1 + "%" : "1.6em",
     };
   }, []);
 
@@ -32,7 +35,7 @@ export const Clock: React.FC = () => {
       days: timeLeft?.date || 0,
       hours: timeLeft?.hours || 0,
       minutes: timeLeft?.minutes || 0,
-      seconds: timeLeft?.seconds || 0
+      seconds: timeLeft?.seconds || 0,
     };
   }, [timeLeft]);
 
@@ -45,7 +48,7 @@ export const Clock: React.FC = () => {
   const sizeStyle = {
     width: size * 2 + "px",
     height: size * 2 + "px",
-    fontSize
+    fontSize,
   };
 
   if (!timeLeft) {
@@ -57,25 +60,28 @@ export const Clock: React.FC = () => {
       <div className="wrapper">
         <div className="item" style={sizeStyle}>
           <SVGCircle radius={monthsRadius} size={size} />
-          <span className="number">{months}</span> <span>months</span>
+          <span className="number">{months}</span>
+          <span>{plurifyString("month", months)}</span>
         </div>
         <div className="item" style={sizeStyle}>
           <SVGCircle radius={daysRadius} size={size} />
-          <span className="number">{days}</span> <span>days</span>
+          <span className="number">{days}</span>
+          <span>{plurifyString("day", days)}</span>
         </div>
         <div className="item" style={sizeStyle}>
           <SVGCircle radius={hoursRadius} size={size} />
           <span className="number">{hours} </span>
-          <span>hours</span>
+          <span>{plurifyString("hour", hours)}</span>
         </div>
         <div className="item" style={sizeStyle}>
           <SVGCircle radius={minutesRadius} size={size} />
-          <span className="number">{minutes}</span> <span>minutes</span>
+          <span className="number">{minutes}</span>
+          <span>{plurifyString("minute", minutes)}</span>
         </div>
         <div className="item" style={sizeStyle}>
           <SVGCircle radius={secondsRadius} size={size} />
           <span className="number">{seconds} </span>
-          <span>seconds</span>
+          <span>{plurifyString("second", seconds)}</span>
         </div>
       </div>
     </div>
