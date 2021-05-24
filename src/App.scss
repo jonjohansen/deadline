@@ -1,4 +1,4 @@
-@import '~nord/src/sass/nord.scss';
+@import "~nord/src/sass/nord.scss";
 
 .container {
   margin-top: 20vmin;
@@ -17,5 +17,10 @@
   .header {
     color: $nord8;
     font-size: 5vmax;
+  }
+
+  .caption {
+    color: $nord8;
+    font-size: 1.5vmax;
   }
 }

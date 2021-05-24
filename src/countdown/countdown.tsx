@@ -3,6 +3,8 @@ import { SVGCircle, mapNumber } from "../svgcircle/svgcircle";
 import moment from "moment";
 import "./countdown.scss";
 
+import { DEADLINE_DATE } from "../shared/constants";
+
 const plurifyString = (toPlurify: string, value: number): string =>
   value === 1 ? toPlurify : toPlurify + "s";
 
@@ -11,7 +13,7 @@ export const Clock: React.FC = () => {
 
   useEffect(() => {
     const tick = setInterval(() => {
-      const end = moment([2021, 5, 2, 0, 0, 0]); // june 2nd 00:00:00
+      const end = DEADLINE_DATE;
       const timeleft = moment(end.diff(moment(Date.now()))).toObject();
       setTimeLeft(timeleft);
     }, 1000);
