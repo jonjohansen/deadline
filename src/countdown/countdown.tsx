@@ -9,12 +9,12 @@ const plurifyString = (toPlurify: string, value: number): string =>
   value === 1 ? toPlurify : toPlurify + "s";
 
 export const Clock: React.FC = () => {
-  const [timeLeft, setTimeLeft] = useState<moment.MomentObjectOutput>();
+  const [timeLeft, setTimeLeft] = useState<moment.Duration>();
 
   useEffect(() => {
     const tick = setInterval(() => {
       const end = DEADLINE_DATE;
-      const timeleft = moment(end.diff(moment(Date.now()))).toObject();
+      const timeleft = moment.duration(end.diff(moment(Date.now())));
       setTimeLeft(timeleft);
     }, 1000);
 
@@ -33,11 +33,11 @@ export const Clock: React.FC = () => {
 
   const { days, hours, minutes, months, seconds } = useMemo(() => {
     return {
-      months: timeLeft?.months || 0,
-      days: timeLeft?.date || 0,
-      hours: timeLeft?.hours || 0,
-      minutes: timeLeft?.minutes || 0,
-      seconds: timeLeft?.seconds || 0,
+      months: timeLeft?.months() || 0,
+      days: timeLeft?.days() || 0,
+      hours: timeLeft?.hours() || 0,
+      minutes: timeLeft?.minutes() || 0,
+      seconds: timeLeft?.seconds() || 0,
     };
   }, [timeLeft]);
 
