@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.scss";
 import { Clock } from "./countdown/countdown";
-import { DEADLINE_DATE } from "./shared/constants";
 
 const App = () => {
   return (
